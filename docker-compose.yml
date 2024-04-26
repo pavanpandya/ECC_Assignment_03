@@ -1,0 +1,27 @@
+version: '1.0'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - servervol:/app/serverdata
+    networks:
+      - pnpandya
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - clientvol:/app/clientdata
+    networks:
+      - pnpandya
+
+volumes:
+  servervol:
+  clientvol:
+
+networks:
+  pnpandya:
